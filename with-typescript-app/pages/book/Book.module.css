@@ -1,0 +1,18 @@
+.bookStore__book {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    margin: 30px auto;
+    width: 800px;
+}
+
+.book__coverAndRate {
+    display: flex;
+    flex-flow: row;
+    justify-content: start;
+    margin: 40px;
+}
+
+.coverAndRate__rate {
+    margin-left: 40px;
+}

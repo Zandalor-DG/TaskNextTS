@@ -1,0 +1,53 @@
+{
+  "name": "book_store_backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "mig": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
+    "start": "node app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Zandalor-DG/BaseAPINode.js.git"
+  },
+  "keywords": [
+    "node js",
+    "jwt",
+    "authentication",
+    "express",
+    "postgresql"
+  ],
+  "author": "Zandalor-DG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Zandalor-DG/BaseAPINode.js/issues"
+  },
+  "homepage": "https://github.com/Zandalor-DG/BaseAPINode.js#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cls-hooked": "^4.2.2",
+    "concurrently": "^5.3.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "eslint": "^7.14.0",
+    "eslint-config-prettier": "^7.0.0",
+    "eslint-plugin-prettier": "^3.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.17",
+    "nodemon": "^2.0.6",
+    "pg": "^8.5.1",
+    "pg-hstore": "^2.3.3",
+    "prettier": "^2.2.1",
+    "sequelize": "^6.3.5",
+    "sequelize-cli": "^6.2.0",
+    "sequelize-virtual-fields": "^1.1.0",
+    "socket.io": "^3.0.5",
+    "uuid": "^8.3.1"
+  }
+}
