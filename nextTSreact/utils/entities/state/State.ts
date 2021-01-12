@@ -1,4 +1,4 @@
-import { BookData } from "../books/bookStoreData";
+import { BookData } from "../../../interfaces/books/bookStoreData";
 
 export type State = {
   books: BookData[] | null;

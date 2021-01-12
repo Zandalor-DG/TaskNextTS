@@ -1,6 +1,6 @@
 import qs from "query-string";
-import { BookData } from "../../utils/entities/books/bookStoreData";
-import { PaginationParams } from "../../utils/entities/books/paginationParams";
+import { BookData } from "../../interfaces/books/bookStoreData";
+import { PaginationParams } from "../../interfaces/books/paginationParams";
 import axios from "./axios";
 
 export interface propsAllBooks {

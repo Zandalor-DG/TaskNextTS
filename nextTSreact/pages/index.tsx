@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { useReducer } from "react";
 import Layout from "../components/Layout";
+import { DataContext } from "../interfaces/Data/DataContext";
+import { initialState } from "../interfaces/Data/InitialState";
 import { ActionBook, ContextState } from "../reducer/action/Action";
 import { booksReducer } from "../reducer/BooksReducer";
-import { DataContext } from "../utils/Data/DataContext";
-import { initialState } from "../utils/Data/InitialState";
 import { State } from "../utils/entities/state/State";
 
 const IndexPage = () => {

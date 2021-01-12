@@ -1,4 +1,4 @@
-import { State } from "../entities/state/State";
+import { State } from "../../utils/entities/state/State";
 
 export const initialState: State = {
   book: null,

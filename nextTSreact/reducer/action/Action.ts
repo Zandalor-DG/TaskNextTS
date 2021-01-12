@@ -1,5 +1,5 @@
 import { Dispatch } from "react";
-import { BookData } from "../../utils/entities/books/bookStoreData";
+import { BookData } from "../../interfaces/books/bookStoreData";
 import { State } from "../../utils/entities/state/State";
 
 export enum ActionTypeBook {
