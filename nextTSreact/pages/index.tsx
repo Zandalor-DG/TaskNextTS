@@ -1,35 +1,31 @@
+import { NextPage } from "next";
 import Link from "next/link";
-import { useReducer } from "react";
+import BooksCard from "../components/booksCard/BooksCard";
 import Layout from "../components/Layout";
-import { DataContext } from "../interfaces/Data/DataContext";
-import { initialState } from "../interfaces/Data/InitialState";
-import { ActionBook, ContextState } from "../reducer/action/Action";
-import { booksReducer } from "../reducer/BooksReducer";
-import { State } from "../utils/entities/state/State";
 
-const IndexPage = () => {
-  const [state, changeState] = useReducer<React.Reducer<State, ActionBook>>(
-    booksReducer,
-    initialState
-  );
+type Props = {
+  someProps: string;
+};
 
-  const contextState: ContextState = {
-    state,
-    changeState,
-  };
-
+const IndexPage: NextPage<Props> = (props) => {
   return (
-    <DataContext.Provider value={contextState}>
-      <Layout title="Home | Next.js + TypeScript Example">
-        <h1>Hello Next.js 👋</h1>
-        <p>
-          <Link href="/about">
-            <a>About</a>
-          </Link>
-        </p>
-      </Layout>
-    </DataContext.Provider>
+    <Layout title="Home | Next.js + TypeScript Example">
+      <h1>{props.someProps}👋</h1>
+      <div>
+        <Link href="/2">
+          <a>
+            <BooksCard />
+          </a>
+        </Link>
+      </div>
+    </Layout>
   );
+};
+
+IndexPage.getInitialProps = async () => {
+  return {
+    someProps: "Her perbesday Dimitry",
+  };
 };
 
 export default IndexPage;
