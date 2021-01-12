@@ -1,7 +1,8 @@
 import Link from "next/link";
-import React from "react";
-import styled from "styled-components";
+import React, { useReducer } from "react";
 import { BookData } from "../../interfaces/books/bookStoreData";
+import { initialState } from "../../interfaces/Data/InitialState";
+import { booksReducer } from "../../reducer/BooksReducer";
 import { baseURL } from "../api/axios";
 
 interface IBooksCard {
@@ -9,6 +10,8 @@ interface IBooksCard {
 }
 
 const BooksCard: React.FC<IBooksCard> = ({ allBooks }) => {
+  const [state, dispatch] = useReducer(booksReducer, initialState);
+
   const content = allBooks.map((item) => {
     return (
       <Link href={`/book/${item.id}`} key={item.id}>
@@ -16,52 +19,17 @@ const BooksCard: React.FC<IBooksCard> = ({ allBooks }) => {
           <img
             src={baseURL + item.File.path_name}
             alt={item.name}
-            className="itemBook__cover"
+            className="item-book__cover"
           />
-          <h3 className="item-book__nameBook">{item.name}</h3>
-          <h4 className="item-book__authorBook">by {item.Author.name}</h4>
-          <h1 className="item-book__priceBook">price: {item.price}</h1>
+          <h3 className="item-book__name-book">{item.name}</h3>
+          <h4 className="item-book__author-book">by {item.Author.name}</h4>
+          <h3 className="item-book__price-book">price: {item.price}</h3>
         </a>
       </Link>
     );
   });
 
-  return (
-    <BooksCardStyle>
-      <div className="books-card__wrapper">{content}</div>
-    </BooksCardStyle>
-  );
+  return <div className="books-card__wrapper">{content}</div>;
 };
 
 export default BooksCard;
-
-const BooksCardStyle = styled.div`
-  .books-card {
-    &__wrapper {
-      display: flex;
-      flex-flow: row wrap;
-      justify-content: space-around;
-      align-items: center;
-      width: 1200px;
-      margin: 0 auto;
-      border: 2px solid gray;
-    }
-    &__itemBook {
-      width: 400px;
-      border: 1px solid tomato;
-      margin: 20px;
-      text-decoration: none;
-      color: black;
-    }
-    &__itemBook::before {
-      box-shadow: 5px 3px 4px 2px gray;
-    }
-  }
-  .itemBook {
-    &__cover {
-      width: 100%;
-      height: 80%;
-      object-fit: "cover";
-    }
-  }
-`;

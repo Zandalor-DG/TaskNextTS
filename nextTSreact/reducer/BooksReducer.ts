@@ -7,20 +7,13 @@ export const booksReducer: React.Reducer<State, ActionBook> = (
   action
 ): State => {
   switch (action.type) {
-    case ActionTypeBook.SetBookStoreState: {
-      return { ...state, books: [...action.books] };
+    case ActionTypeBook.SetLightTheme: {
+      return { ...action.theme };
     }
-    case ActionTypeBook.SetBookState: {
+    case ActionTypeBook.SetNightTheme: {
       return {
-        ...state,
-        book: { ...action.book },
+        ...action.theme,
       };
-    }
-    case ActionTypeBook.SetTotalPage: {
-      return { ...state, totalPage: action.totalPage };
-    }
-    case ActionTypeBook.SetPageSize: {
-      return { ...state, pageSize: action.pageSize };
     }
     case ActionTypeBook.SetError: {
       return {
