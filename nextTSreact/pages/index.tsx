@@ -1,31 +1,37 @@
 import { NextPage } from "next";
-import Link from "next/link";
+import { getAllBooks, propsAllBooks } from "../components/api/apiBookStore";
 import BooksCard from "../components/booksCard/BooksCard";
 import Layout from "../components/Layout";
 
 type Props = {
-  someProps: string;
+  data: propsAllBooks;
 };
 
 const IndexPage: NextPage<Props> = (props) => {
   return (
     <Layout title="Home | Next.js + TypeScript Example">
-      <h1>{props.someProps}👋</h1>
-      <div>
-        <Link href="/2">
-          <a>
-            <BooksCard />
-          </a>
-        </Link>
-      </div>
+      <BooksCard allBooks={props.data.rows} />
     </Layout>
   );
 };
 
 IndexPage.getInitialProps = async () => {
-  return {
-    someProps: "Her perbesday Dimitry",
+  const initialProps: Props = {
+    data: {
+      count: 0,
+      rows: [],
+    },
   };
+  try {
+    const res = await getAllBooks({ pageSize: 20, page: 1 });
+    initialProps.data = {
+      count: res.count,
+      rows: res.rows,
+    };
+  } catch (err) {
+    console.log("its error catch", err.message);
+  }
+  return initialProps;
 };
 
 export default IndexPage;

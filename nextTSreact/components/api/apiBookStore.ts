@@ -9,8 +9,8 @@ export interface propsAllBooks {
 }
 
 export const getAllBooks = async ({
-  pageSize,
-  page,
+  pageSize = 20,
+  page = 1,
 }: PaginationParams): Promise<propsAllBooks> => {
   const res = await axios.get("/book/allbooks", {
     params: {
@@ -29,6 +29,6 @@ export const getBook = async (id: string): Promise<BookData> => {
   const res = await axios.get("/book/getbook", {
     params: { id },
   });
-  const data: BookData = res.data.data;
+  const data: BookData = res.data.book;
   return data;
 };
