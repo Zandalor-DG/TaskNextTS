@@ -1,8 +1,8 @@
 import OriginApp, { AppContext } from "next/app";
 import { AppPropsType } from "next/dist/next-server/lib/utils";
 import { createGlobalStyle } from "styled-components";
-import ThemeComponent from "../components/themeComponent";
-import { readCookie } from "../utils/readCookies";
+import ThemeComponent from "../src/components/themeComponent";
+import { readCookie } from "../src/utils/readCookies";
 
 const GlobalStyle = createGlobalStyle`
   body {

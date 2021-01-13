@@ -1,17 +1,23 @@
 import { NextPage } from "next";
-import { getBook } from "../../components/api/apiBookStore";
-import { BookInfo } from "../../components/componentBook/BookInfo";
-import Layout from "../../components/Layout";
-import { BookData } from "../../interfaces/books/bookStoreData";
+import Link from "next/link";
+import { getBook } from "../../src/components/api/apiBookStore";
+import { BookInfo } from "../../src/components/componentBook/BookInfo";
+import Layout from "../../src/components/Layout";
+import { BookData } from "../../src/interfaces/books/bookStoreData";
 type Props = {
   data: BookData;
 };
 
 const Book: NextPage<Props> = ({ data }) => {
   return (
-    <Layout title="testTaskNext.js">
-      <BookInfo data={data} />
-    </Layout>
+    <>
+      <Layout title="testTaskNext.js">
+        <BookInfo data={data} />
+      </Layout>
+      <Link href="/" as="/">
+        <a>{"<--back"}</a>
+      </Link>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import { NextPage } from "next";
-import { getAllBooks, propsAllBooks } from "../components/api/apiBookStore";
-import BooksCard from "../components/booksCard/BooksCard";
-import Layout from "../components/Layout";
+import { getAllBooks, propsAllBooks } from "../src/components/api/apiBookStore";
+import BooksCard from "../src/components/booksCard/BooksCard";
+import Layout from "../src/components/Layout";
 
 type Props = {
   data: propsAllBooks;

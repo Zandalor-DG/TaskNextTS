@@ -1,8 +1,6 @@
 import Link from "next/link";
-import React, { useReducer } from "react";
+import React from "react";
 import { BookData } from "../../interfaces/books/bookStoreData";
-import { initialState } from "../../interfaces/Data/InitialState";
-import { booksReducer } from "../../reducer/BooksReducer";
 import { baseURL } from "../api/axios";
 
 interface IBooksCard {
@@ -10,11 +8,9 @@ interface IBooksCard {
 }
 
 const BooksCard: React.FC<IBooksCard> = ({ allBooks }) => {
-  const [state, dispatch] = useReducer(booksReducer, initialState);
-
   const content = allBooks.map((item) => {
     return (
-      <Link href={`/book/${item.id}`} key={item.id}>
+      <Link href={`/book/${item.id}`} as={`/book/${item.id}`} key={item.id}>
         <a className="books-card__itemBook">
           <img
             src={baseURL + item.File.path_name}

@@ -2,8 +2,8 @@ import Head from "next/head";
 import React, { ReactNode, useContext, useReducer, useState } from "react";
 import styled from "styled-components";
 import { initialState } from "../interfaces/Data/InitialState";
-import { ActionBook } from "../reducer/action/Action";
-import { booksReducer } from "../reducer/BooksReducer";
+import { ActionBook } from "../src/reducer/action/Action";
+import { booksReducer } from "../src/reducer/BooksReducer";
 import { State } from "../utils/entities/state/State";
 import { UserThemeContext } from "./themeComponent";
 
