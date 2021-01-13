@@ -9,7 +9,7 @@ type Props = {
 
 const IndexPage: NextPage<Props> = (props) => {
   return (
-    <Layout title="Home | Next.js + TypeScript Example">
+    <Layout title="testTaskNext.js">
       <BooksCard allBooks={props.data.rows} />
     </Layout>
   );

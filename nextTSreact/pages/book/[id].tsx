@@ -1,16 +1,22 @@
 import { NextPage } from "next";
 import { getBook } from "../../components/api/apiBookStore";
 import { BookInfo } from "../../components/componentBook/BookInfo";
+import Layout from "../../components/Layout";
 import { BookData } from "../../interfaces/books/bookStoreData";
 type Props = {
   data: BookData;
 };
 
 const Book: NextPage<Props> = ({ data }) => {
-  return <BookInfo data={data} />;
+  return (
+    <Layout title="testTaskNext.js">
+      <BookInfo data={data} />
+    </Layout>
+  );
 };
 
 Book.getInitialProps = async (ctx) => {
+  //console.log(">>your cookies are", ctx.req?.headers.cookie);
   const initialProps: Props = {
     data: {
       Author: { name: "" },
@@ -39,5 +45,3 @@ Book.getInitialProps = async (ctx) => {
 };
 
 export default Book;
-
-//id: Array.isArray(query.id) ? query.id[0] : query.id,
