@@ -27,7 +27,6 @@ const App = ({ cookiesData, Component, pageProps }: Props) => {
 };
 
 App.getInitialProps = async (context: AppContext) => {
-  console.log(">>your cookies are", context.ctx?.req?.headers.cookie);
   const cookiesData = readCookie("theme", context);
 
   const appProps = await OriginApp.getInitialProps(context);

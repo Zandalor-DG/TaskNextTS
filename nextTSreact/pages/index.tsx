@@ -1,4 +1,5 @@
 import { NextPage } from "next";
+import { useRouter } from "next/router";
 import { getAllBooks, propsAllBooks } from "../src/components/api/apiBookStore";
 import BooksCard from "../src/components/booksCard/BooksCard";
 import Layout from "../src/components/Layout";
@@ -8,6 +9,8 @@ type Props = {
 };
 
 const IndexPage: NextPage<Props> = (props) => {
+  const router = useRouter();
+  console.log(router);
   return (
     <Layout title="testTaskNext.js">
       <BooksCard allBooks={props.data.rows} />
