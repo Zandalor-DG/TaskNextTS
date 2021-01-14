@@ -1,10 +1,6 @@
 import Head from "next/head";
-import React, { ReactNode, useContext, useReducer, useState } from "react";
+import React, { ReactNode, useContext } from "react";
 import styled from "styled-components";
-import { initialState } from "../interfaces/Data/InitialState";
-import { ActionBook } from "../src/reducer/action/Action";
-import { booksReducer } from "../src/reducer/BooksReducer";
-import { State } from "../utils/entities/state/State";
 import { UserThemeContext } from "./themeComponent";
 
 type Props = {
@@ -13,12 +9,6 @@ type Props = {
 };
 
 const Layout = ({ children, title = "This is the default title" }: Props) => {
-  const [lightOrNight, setLightOrNight] = useState(true);
-  const [state, changeState] = useReducer<React.Reducer<State, ActionBook>>(
-    booksReducer,
-    initialState
-  );
-
   const themeHandler = useContext(UserThemeContext);
   const toggleTheme = () => {
     themeHandler();
